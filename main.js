@@ -9,12 +9,6 @@ const arrayTest = []
       .then(response => response.json())
       .then(data => pushArray(data))
     const pushArray = (data)=>{
-      arrayTest.push(data.events)
-      
-
-
-
-
 let arrayIndex = data.events.filter(event => parseInt(event.date) <= parseInt(data.currentDate))
 let arrayComing = data.events.filter(event => parseInt(event.date) >= parseInt(data.currentDate))
 let arrayPast = data.events.filter(event => parseInt(event.date) < parseInt(data.currentDate))
@@ -184,21 +178,17 @@ function checkPage(){
 
 
 function getData() {
-  var idCard = 1;
-  arrayIndex.map((event) => (event.id = idCard++));
 
-  var id = location.search.split("?id=").filter(Number);
-  console.log(id);
+  ///////////Filtra el buscador por el ID ////////////
+const locationSearch = location.search
+const params = new URLSearchParams(locationSearch)
+const id = params.get("id")
+console.log(id)
 
-  ///////////Filtra el buscador por el número de ID ////////////
-  var selectID = Number(id[0]);
-  console.log(selectID);
-
-  var event = arrayIndex.find((event) => {
-    return event.id == selectID;
-  });
-  //////////////Entra a eventos y busca un evento y lo retorna según su ID//////////////////
-  var cards = `<div class="card mb-3" style="max-width: 540px;">
+data.events.find(event => {
+  if (event._id == id){
+    //////////////Entra a eventos y busca un evento y lo retorna según su ID//////////////////
+  document.getElementById("cardConteiner").innerHTML = `<div class="card mb-3" style="max-width: 540px;">
   <div class="row g-0">
     <div class="row-md-4">
     <img src="${event.image}" class="img-fluid rounded-start" alt="${event.name}">
@@ -219,6 +209,6 @@ function getData() {
     </div>
   </div>
 </div>`;
-  document.getElementById("cardConteiner").innerHTML = cards;
+  }})
 }
     }
