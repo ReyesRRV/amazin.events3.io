@@ -3,7 +3,6 @@ let element = document.getElementById("mydiv");
 let cardConteiner = document.getElementById("cardConteiner");
 let currentDate = ""
 const api = "https://amazing-events.herokuapp.com/api/events"
-const arrayTest = []
 
       fetch(api)
       .then(response => response.json())
@@ -180,11 +179,8 @@ function checkPage(){
 function getData() {
 
   ///////////Filtra el buscador por el ID ////////////
-const locationSearch = location.search
-const params = new URLSearchParams(locationSearch)
-const id = params.get("id")
+const id = new URLSearchParams(location.search).get("id")
 console.log(id)
-
 data.events.find(event => {
   if (event._id == id){
     //////////////Entra a eventos y busca un evento y lo retorna según su ID//////////////////
