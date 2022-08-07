@@ -2,6 +2,19 @@
 let element = document.getElementById("mydiv");
 let cardConteiner = document.getElementById("cardConteiner");
 let currentDate = ""
+const api = "https://amazing-events.herokuapp.com/api/events"
+const arrayTest = []
+
+      fetch(api)
+      .then(response => response.json())
+      .then(data => pushArray(data))
+    const pushArray = (data)=>{
+      arrayTest.push(data.events)
+      
+
+
+
+
 let arrayIndex = data.events.filter(event => parseInt(event.date) <= parseInt(data.currentDate))
 let arrayComing = data.events.filter(event => parseInt(event.date) >= parseInt(data.currentDate))
 let arrayPast = data.events.filter(event => parseInt(event.date) < parseInt(data.currentDate))
@@ -208,4 +221,4 @@ function getData() {
 </div>`;
   document.getElementById("cardConteiner").innerHTML = cards;
 }
-
+    }
