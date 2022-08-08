@@ -2,9 +2,7 @@
 let element = document.getElementById("mydiv");
 let cardConteiner = document.getElementById("cardConteiner");
 let currentDate = ""
-const api = "https://amazing-events.herokuapp.com/api/events"
-
-      fetch(api)
+      fetch("https://amazing-events.herokuapp.com/api/events")
       .then(response => response.json())
       .then(data => pushArray(data))
     const pushArray = (data)=>{
