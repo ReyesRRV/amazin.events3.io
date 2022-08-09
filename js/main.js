@@ -53,11 +53,11 @@ fetch("https://amazing-events.herokuapp.com/api/events")
 
     ////////------------------CREAR FUNCIÓN CATERGORIAS------------------//////
 
-    function printCategory(exactamenteLoMismo) {
+    function printCategory(event) {
       printCheckbox = "";
       printCheckbox = `<div class="form-check form-switch">
- <input class="form-check-input " type="checkbox" role="switch" id="${exactamenteLoMismo}">
- <label class="form-check-label text-light shadow rounded" for="${exactamenteLoMismo}">${exactamenteLoMismo}</label>
+ <input class="form-check-input " type="checkbox" role="switch" id="${event}">
+ <label class="form-check-label text-light shadow rounded" for="${event}">${event}</label>
 </div>`;
       checkboxContainer.innerHTML += printCheckbox;
     }
@@ -212,4 +212,7 @@ fetch("https://amazing-events.herokuapp.com/api/events")
       }
     });
   }
+
+
+    
 };
